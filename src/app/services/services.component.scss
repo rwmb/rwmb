@@ -1,0 +1,173 @@
+@import 'src/sass/abstracts/variables';
+
+$service-border-radius: 20px;
+$card-header-transition: cubic-bezier(.7,0,.3,1);
+
+.services-section {
+  background-color: $clouds;
+  display: grid;
+  grid-row-gap: 2rem;
+  padding: 3rem 1rem;
+  grid-template-columns: 1fr minmax(auto, 1300px) 1fr;
+  grid-template-areas: 
+    ". title ."
+    ". servicesContent .";
+  justify-items: center;
+
+  @media screen and (max-width: $break-medium) {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "title"
+    "servicesContent";
+  }
+}
+
+.services-header {
+  grid-area: title;
+  color: $primary-dark-color;
+}
+
+.services-content {
+  height: 100%;
+  width: 100%;
+  grid-gap: 1em;
+  grid-area: servicesContent;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "dev design producer";
+  transition: 200ms;
+  @media screen and (max-width: $break-large) {
+    font-size: 80%;
+  }
+
+  @media screen and (max-width: $break-medium) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "dev dev"
+    "design producer";
+  }
+
+  @media screen and (max-width: $break-small) {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "dev"
+    "producer"
+    "design";
+  }
+}
+
+.service {
+  cursor: pointer;
+  background-color: $clouds;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  color: $primary-dark-color;
+  grid-template-rows: auto 1fr;
+  border-radius: $service-border-radius;
+  box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.3);
+  
+  &:hover.svc-card {
+    .service-item-header {
+      height: 100%;
+      border-radius: $service-border-radius;
+      padding: 0;
+    }
+  }
+}
+
+.service-item-header {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: grid;
+  position: absolute;
+  height: 60px;
+  text-align: center;
+  padding: 1rem 0;
+  width: 100%;
+  border-top-right-radius: $service-border-radius;
+  border-top-left-radius: $service-border-radius;
+  transition: $card-header-transition 450ms;
+  
+  h3 {
+    color: white;
+    align-self: center;
+    font-family: $font-logo;
+    font-size: 140%;
+    font-weight: 600;
+    margin: 0;
+    padding: 0 1em;
+    align-self: center;
+    justify-self: center;
+  }
+}
+
+.svc-dev {
+  grid-area: dev;
+  .service-item-header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9)), url('~assets/images/keyboard.jpg');
+  }
+}
+
+.svc-design {
+  grid-area: design;
+  .service-item-header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9)), url('~assets/images/design.jpg');
+  }
+}
+
+.svc-producer {
+  grid-area: producer;
+  .service-item-header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9)), url('~assets/images/ps.jpg');
+  }
+}
+
+.svc-info {
+  z-index: 9;
+  p {
+    margin: 110px 10px 10px 10px;
+  }
+}
+
+.svc-card {
+  z-index: 10;
+}
+
+.svc-items {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  margin-top: 110px;
+  grid-gap: 1rem;
+  align-items: center;
+  padding: 1rem;
+  justify-items: start;
+
+  i {
+    align-self: center;
+    justify-self: center;
+    font-size: 150%;
+    grid-column: 1/2;
+  }
+
+  h4 {
+    font-family: $font-logo;
+    margin: 0;
+    padding: 0;
+    grid-column: 2/3;
+  }
+}
+
+.closed-card {
+  z-index: 5;
+}
+
+.invisible-card {
+  opacity: 0;
+}

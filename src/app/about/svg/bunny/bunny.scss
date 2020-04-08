@@ -1,0 +1,64 @@
+$stroke-dash: 1000;
+
+.st0{
+  fill:none;
+  stroke:#000000;
+  stroke-width:9;
+  stroke-miterlimit:10;
+  height: 100%;
+  width: 100%;
+  stroke-dasharray: $stroke-dash;
+  stroke-dashoffset: $stroke-dash;
+}
+
+.st1{
+  fill:none;
+  stroke:#000000;
+  stroke-width:18;
+  stroke-miterlimit:10;
+  height: 100%;
+  width: 100%;
+  stroke-dasharray: $stroke-dash;
+  stroke-dashoffset: $stroke-dash;
+}
+
+.st2{
+  fill:none;
+  stroke:#000000;
+  stroke-width:9;
+  stroke-miterlimit:10;
+  height: 100%;
+  width: 100%;
+  stroke-dasharray: $stroke-dash;
+  stroke-dashoffset: $stroke-dash;
+}
+
+.st3{
+  fill:none;
+  stroke:#000000;
+  stroke-width:4;
+  stroke-miterlimit:10;
+  height: 100%;
+  width: 100%;
+  stroke-dasharray: $stroke-dash;
+  stroke-dashoffset: $stroke-dash;
+}
+
+.st4{
+  fill:none;
+  stroke:#000000;
+  stroke-width:5;
+  stroke-miterlimit:10;
+  height: 100%;
+  width: 100%;
+  stroke-dasharray: $stroke-dash;
+  stroke-dashoffset: $stroke-dash;
+}
+
+.whisker1 {
+  transform-origin: left;
+}
+
+.whisker2 {
+  transform-origin: right;
+}

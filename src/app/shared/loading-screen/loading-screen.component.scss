@@ -1,0 +1,13 @@
+@import 'src/sass/abstracts/variables';
+
+.loading {
+  font-family: $font-logo; 
+  position: fixed;
+  z-index: 2000;
+  background-color: $primary-bg-color;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}

@@ -1,0 +1,71 @@
+<div class="contact-section" #container>
+  <h2 class="contact-header">{{title}}</h2>
+  <app-plocket #plocket class="plocket"></app-plocket>
+  <div class="contact-message" #contactMessage>
+      <p>Tell me a little bit about your project, how long you expect it to take and your budget</p>
+      <p>or reach me through my social links</p>
+      <form 
+      class="form-contact" 
+      (ngSubmit)="onSubmit()" #form="ngForm">
+        <div class="form-control-group">
+          <input
+            class="form-control"
+            [ngClass]="{submitted: form.submitted}"
+            type="text"
+            name="name"
+            autocomplete="off"
+            required
+            ngModel
+            #name="ngModel">
+          <label for="name" class="form-control-label" [ngClass]="{empty: !form.value.name}">Name</label>
+        </div>
+        <!-- <p class="error-message"
+          [@errorMessage]="name.invalid && form.submitted ? 'bad' : 'good'">Don't be shy, what's your name?</p> -->
+        <div class="form-control-group">
+          <input
+            class="form-control"
+            [ngClass]="{submitted: form.submitted}"
+            type="text" 
+            name="email"
+            autocomplete="off"
+            required
+            email
+            ngModel
+            #email="ngModel">
+            <label for="email" class="form-control-label" [ngClass]="{empty: !form.value.email}">Email</label>
+        </div>
+        <!-- <p class="error-message"
+          [@errorMessage]="email.invalid && form.submitted ? 'bad' : 'good'">It will be easier to contact you with your email.</p> -->
+        <div class="form-control-group">
+          <textarea
+            class="form-control"
+            [ngClass]="{submitted: form.submitted}"
+            name="message" 
+            id="idMessage"
+            cols="30"
+            rows="8"
+            autocomplete="off"
+            required
+            ngModel
+            #message="ngModel"></textarea>
+            <label for="message" class="form-control-label" [ngClass]="{empty: !form.value.message}">Message</label>
+        </div>
+        <!-- <p class="error-message"
+          [@errorMessage]="message.invalid && form.submitted ? 'bad' : 'good'">Drop me a line so I know what you have in mind.</p> -->
+          
+        <p 
+          class="error-message"
+          [@errorMessage]="message.invalid && form.submitted ? 'bad' : 'good'"
+          >Oops, you forgot something.</p>
+        <button 
+          type="submit"
+          class="btn-submit">SEND</button>
+      </form>
+  </div>
+  <p 
+    class="contact-message-handler"
+    [ngClass]="{'message-sent': isSent}">Lift off! We have lift off! I'll respond as soon as possible.</p>
+  <p 
+    class="contact-message-handler"
+    [ngClass]="{'message-fail': messageFail}">Mayday! Something went wrong. You can try again or reach me through the links below.</p>
+</div>

@@ -1,0 +1,34 @@
+.hamburguer-menu {
+  width: 100%;
+  height: 100%;
+}
+
+$easeIn: cubic-bezier(0.445, 0.050, 0.550, 0.950);
+$easeOut: cubic-bezier(0.250,-0.250, 0.750, 1.250);
+
+path {
+  fill: none;
+  stroke-width: 50px;
+  stroke-linecap: round;
+  stroke: #ffffff;
+
+  transition: 400ms $easeOut;
+}
+
+path.top,
+path.bottom {
+  stroke-dasharray: 240px 950px;
+}
+path.middle {
+  stroke-dasharray: 240px 240px;
+}
+
+.cross path.top,
+.cross path.bottom {
+  stroke-dashoffset: -650px;
+  stroke-dashoffset: -650px;
+}
+.cross path.middle {
+  stroke-dashoffset: -115px;
+  stroke-dasharray: 1px 220px;
+}

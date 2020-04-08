@@ -1,0 +1,38 @@
+/* MONTSERRAT */
+@font-face {
+  font-family: Montserrat;
+  font-weight: 300;
+  src: url(Montserrat-Light.ttf) format("truetype");
+}
+@font-face {
+  font-family: Montserrat;
+  font-weight: 400;
+  src: url(Montserrat-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: Montserrat;
+  font-weight: 500;
+  src: url(Montserrat-Medium.ttf) format("truetype");
+}
+@font-face {
+  font-family: Montserrat;
+  font-weight: 600;
+  src: url(Montserrat-SemiBold.ttf) format("truetype");
+}
+
+/* ORBITRON */
+@font-face {
+  font-family: Orbitron;
+  font-weight: 500;
+  src: url(Orbitron-Medium.ttf) format("truetype");
+}
+@font-face {
+  font-family: Orbitron;
+  font-weight: 700;
+  src: url(Orbitron-Bold.ttf) format("truetype");
+}
+@font-face {
+  font-family: Orbitron;
+  font-weight: 900;
+  src: url(Orbitron-Black.ttf) format("truetype");
+}

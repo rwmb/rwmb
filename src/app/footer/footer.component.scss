@@ -1,0 +1,98 @@
+@import 'src/sass/abstracts/variables';
+
+footer {
+  width: 100%;
+  background-color: $primary-dark-color;
+  font-size: 80%;
+}
+
+.sticky-footer {
+  position: fixed;
+  bottom: 0;
+  z-index: -1;
+}
+
+.grid-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 
+    "box1 box2"
+    "box3 box3";
+  @media screen and (max-width: $break-small) {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "box1"
+      "box2"
+      "box3";
+  }
+}
+
+.box1,
+.box2 {
+  text-align: center;
+  padding: 50px 1rem;
+
+  a {
+    font-size: 150%;
+
+    i {
+      font-size: 150%;
+    }
+  }
+
+  @media screen and (max-width: $break-medium) {
+    a {
+      font-size: 130%;
+  
+      i { font-size: 130%; }
+    }
+  }
+
+  @media screen and (max-width: $break-small) {
+    p {
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+    a { margin-bottom: 1rem; }
+  }
+}
+
+.box1 {
+  @media screen and (max-width: $break-small) {
+    padding-top: 50px;
+  }
+  grid-area: box1;
+  background-color: $picton;
+}
+
+.box2 {
+  grid-area: box2;
+  background-color: $primary-color;
+}
+
+.box3 {
+  text-align: center;
+  font-size: 70%;
+  grid-area: box3;
+  p {
+    margin: 1rem 0;
+  }
+}
+
+.follow-me {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+  margin: 0 20%;
+  a {
+    margin: 0;
+    color: $font-color;
+    font-size: 220%;
+  }
+}
+
+.contact {
+  text-decoration: none;
+  color: $font-color;
+  font-size: 120%;
+}

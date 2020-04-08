@@ -1,0 +1,116 @@
+@import 'src/sass/abstracts/variables';
+
+.cover {
+  background-image: url('~assets/images/cover.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  box-sizing: border-box;
+  padding: 5rem .5rem 1rem .5rem;
+  height: 100vh;
+  max-height: 1080px;
+  position: relative;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr repeat(2, minmax(auto, 400px)) 1fr;
+  grid-template-rows: 1fr;
+  grid-row-gap: 0.5rem;
+
+  @media screen and (max-width: $break-small) {
+    padding: 5rem .5rem 1rem .5rem;
+  }
+
+  .hero {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    box-sizing: border-box;
+    height: 50vh;
+
+    p {
+      height: 100%;
+      font-weight: 300;
+      font-size: 250%;
+      overflow: visible;
+      transition: 200ms;
+
+      @media screen and (max-width: $break-medium) {
+        font-size: 200%;
+      }
+
+      @media screen and (max-width: $break-small) {
+        font-size: 140%;
+      }
+    }
+  }
+}
+
+.classColor {
+  font-family: $font-logo; 
+  font-size: 80%;
+  color: orange;
+}
+
+.methodColor {
+  font-family: $font-logo;
+  font-size: 70%;
+  color: white;
+  font-weight: 400;
+}
+
+.variableColor {
+  font-family: $font-logo;
+  font-size: 80%;
+  color: aqua;
+}
+
+.smiley {
+  color: $primary-color;
+}
+
+.to-services,
+.know-more {
+  margin: 0 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem 2rem;
+  border-radius: 200px;
+  color: $font-color;
+  font-weight: 400;
+  border: 2px solid $picton;
+  transition: 200ms;
+
+  &:hover,
+  &:active {
+    letter-spacing: 3px;
+    color: aliceblue;
+    background-color: $primary-color;
+    transform: scaleX(1.05);
+  }
+
+  @media screen and (max-width: $break-medium) {
+    &:hover,
+    &:active {
+      letter-spacing: 2px;
+    }
+  }
+}
+
+.know-more {
+  grid-column: 2/3;
+  background-color: $picton;
+  @media screen and (max-width: $break-medium) {
+    grid-column: 2/4;
+  }
+}
+.to-services {
+  grid-column: 3/4;
+  @media screen and (max-width: $break-medium) {
+    grid-column: 2/4;
+  }
+}
+
+.typing {
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}

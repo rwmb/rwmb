@@ -1,0 +1,48 @@
+@import 'src/sass/abstracts/variables';
+
+.app-container {
+  background-image: url('~assets/images/cover.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
+  box-shadow: 0 30px 20px $dark-shadow;
+  margin: 0 auto 218px auto;
+  padding-bottom: 1rem;
+
+  @media screen and (max-width: $break-medium) {
+    padding: 0;
+  }
+
+  @media screen and (max-width: $break-small) {
+    margin-bottom: 367px;
+  }
+}
+
+.app-content {
+  position: relative;
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: $primary-color;
+  padding: .5rem;
+
+  @media screen and (max-width: $break-medium) {
+    padding: 0;
+    width: 100%;
+  }
+
+  @media screen and (max-width: $break-small) {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.body-loading {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  overflow: hidden;
+}

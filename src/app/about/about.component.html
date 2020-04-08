@@ -1,0 +1,15 @@
+<div class="about-section" #container>
+  <h2 class="about-header">A BIT ABOUT ME</h2>
+  <div class="picture">
+      <img #aboutImage src="assets/images/about.jpg" alt="Richard William">
+      <outline-profile></outline-profile>
+      <app-bunny #bunny></app-bunny>
+      <app-insect #insect></app-insect>
+      <app-pirate #pirate></app-pirate>
+      <app-diver #diver></app-diver>
+  </div>
+  <div class="about" #aboutText [ngClass]="{fadeInUp: showText, invisible: !showText}">
+    <p class="first-paragraph">Hi there! I'm Richard William. I'm a {{getAge()}} years old software developer and digital content producer from Brazil. I started my carrer in 2013 creating simple desktop applications for a child's care government organization, but I started playing around with video and image editing softwares since I was 14, and coding when I was 16. Later on I entered a game development course at Unisinos in Porto Alegre, Brazil, and there was where I discovered that my passion was creating interactive and fun applications, even though people would use it the wrong way, so I took a few design classes and found out the wrong one was me. I've been breathing and eating code and design since then. I can't stop. And I don't want to.</p>
+    <p class="second-paragraph">Now I'm a freelancer who is always learning new technologies and seeking challenging projects. Another true passion in my life is my family, which I love to spend my free time with.</p>
+  </div>
+</div>

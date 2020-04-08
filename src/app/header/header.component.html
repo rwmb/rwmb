@@ -1,0 +1,85 @@
+<header [ngClass]="{'sticky-header': isSticky}">
+  <div class="container-header">
+    <a class="brand" href="/">
+        <img src="assets/images/plocket.png" alt="DotAchieve">
+        <p><span>DOT</span>ACHIEVE</p>
+    </a>
+    
+    <nav>
+      <ul>
+        <li class="nav-btn" (click)="scrollTo('home')">
+          <i class="fa fa-space-shuttle"></i>
+          <a>Home</a>
+        </li>
+        <li class="nav-btn" (click)="scrollTo('about')">
+          <i class="fa fa-id-card"></i>
+          <a>About</a>
+        </li>
+        <li class="nav-btn" (click)="scrollTo('services')">
+          <i class="fa fa-suitcase"></i>
+          <a>Services</a>
+        </li>
+        <li class="nav-btn" (click)="scrollTo('contact')">
+          <i class="fa fa-envelope"></i>
+          <a>Contact</a>
+        </li>
+        <li class="nav-btn" (click)="scrollTo('bottom')">
+          <i class="fa fa-hand-spock-o"></i>
+          <a>Social</a>
+        </li>
+        <li class="nav-btn-menu" (click)="toggleSideNav()">
+          <app-hamburguer-button [isOpen]="isSideMenuOpen"></app-hamburguer-button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div 
+    class="side-nav" 
+    #sideNav 
+    [ngClass]="{closed: !isSideMenuOpen, open: isSideMenuOpen}"
+    (mouseleave)="startTimer(2000)"
+    (mouseenter)="clearTimer()">
+    <div class="side-nav-grid">
+      <div class="sn-btn" (click)="scrollTo('home')">
+          <div class="sn-icon">
+            <i class="fa fa-space-shuttle"></i>
+          </div>
+          <div class="sn-link">
+            <a>Home</a>
+          </div>
+      </div>
+      <div class="sn-btn" (click)="scrollTo('about')">
+          <div class="sn-icon">
+            <i class="fa fa-id-card"></i>
+          </div>
+          <div class="sn-link">
+            <a>About</a>
+          </div>
+      </div>
+      <div class="sn-btn" (click)="scrollTo('services')">
+          <div class="sn-icon">
+            <i class="fa fa-suitcase"></i>
+          </div>
+          <div class="sn-link">
+            <a>Services</a>
+          </div>
+      </div>
+      <div class="sn-btn" (click)="scrollTo('contact')">
+          <div class="sn-icon">
+            <i class="fa fa-envelope"></i>
+          </div>
+          <div class="sn-link">
+            <a>Contact</a>
+          </div>
+      </div>
+      <div class="sn-btn" (click)="scrollTo('bottom')">
+          <div class="sn-icon">
+            <i class="fa fa-hand-spock-o"></i>
+          </div>
+          <div class="sn-link">
+            <a>Social</a>
+          </div>
+      </div>
+    </div>
+  </div>
+</header>

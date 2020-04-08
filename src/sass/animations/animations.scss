@@ -1,0 +1,55 @@
+.fadeInUp {
+  animation-name: fadeInUp;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(.2,.05,.05,1);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: none
+  }
+}
+
+.rollIn {
+  animation-name: rollIn;
+  animation-duration: 400ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+
+@keyframes rollIn {
+  from {
+    opacity: 0;
+    transform: translateY(50%) rotate(60deg)
+  }
+
+  to {
+      opacity: 1;
+      transform: none
+  }
+}
+
+.slideIn {
+  animation-name: slideIn;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%)
+  }
+
+  to {
+      opacity: 1;
+      transform: none
+  }
+}

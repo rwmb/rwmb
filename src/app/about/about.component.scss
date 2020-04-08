@@ -1,0 +1,121 @@
+@import 'src/sass/abstracts/variables';
+@import 'src/sass/animations/animations';
+
+.about-section {
+  background-color: $primary-dark-color;
+  display: grid;
+  padding: 3rem 0;
+  grid-template-columns: 1fr auto minmax(auto, 650px) 1fr;
+  grid-column-gap: 2rem;
+  grid-row-gap: 2rem;
+  grid-template-areas: 
+    ". title title ."
+    ". picture about .";
+  justify-items: center;
+  align-items: center;
+
+  .btn-content-nav {
+    grid-area: toservices;
+  }
+
+  @media screen and (max-width: $break-large) {
+    grid-column-gap: 1rem;
+    grid-template-columns: 1fr auto auto 1fr
+  }
+  @media screen and (max-width: $break-medium) {
+    grid-template-columns: 1fr;
+    padding: 3rem 1rem;
+    grid-template-areas: 
+    "title"
+    "picture"
+    "about";
+  }
+}
+
+.picture {
+  position: relative;
+  grid-area: picture;
+  display: grid;
+  justify-items: center;
+
+  img {
+    box-shadow: 0 20px 30px $dark-shadow;
+    z-index: 10;
+  }
+
+  outline-profile {
+    overflow: hidden;
+    background-color: rgba(238, 236, 255, 0.8);
+    z-index: 1;
+
+    path,
+    circle{
+      stroke-width: 4;
+    }
+  }
+
+  img,
+  outline-profile,
+  app-bunny,
+  app-insect,
+  app-pirate,
+  app-diver {
+    border-radius: 50%;
+    width: 350px;
+    max-width: 350px;
+    height: auto;
+    max-height: 350px;
+    grid-column-start: 1;
+    /* autoprefixer: off */
+    grid-column-end: 2;
+    grid-row-start: 1;
+    /* autoprefixer: off */
+    grid-row-end: 2;
+
+    @media screen and (max-width: $break-large) {
+      width: 100%;
+      height: auto;
+      margin: 0 2rem;
+    }
+    @media screen and (max-width: $break-medium) {
+      width: 300px;
+      height: auto;
+      margin: 0 2rem;
+    }
+
+    @media screen and (max-width: $break-small) {
+      width: 100%;
+      height: auto;
+      margin: 0 2rem;
+    }
+  }
+}
+
+.about-header {
+  color: $font-color;
+  grid-area: title;
+}
+
+.about {
+  grid-area: about;
+  width: 400px;
+  height: auto;
+
+  p {
+    color: $font-color;
+    font-size: 90%;
+  }
+
+  @media screen and (max-width: $break-small) {
+    width: 100%;
+  }
+}
+
+.first-paragraph,
+.second-paragraph {
+  font-size: 110%;
+}
+
+.second-paragraph {
+  font-weight: 600;
+}

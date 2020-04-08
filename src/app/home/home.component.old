@@ -1,0 +1,316 @@
+import { Component, OnInit, ViewChild, ElementRef,  } from '@angular/core';
+
+interface Word {
+  word: string;
+  variableName: string;
+  pause?: number;
+}
+
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
+})
+export class HomeComponent implements OnInit {
+  isSayHiBtnVisible = true;
+  isAboutBtnOn = false;
+  isDisabled = false;
+  sayHiBtnName: string = 'Say Hi!';
+  @ViewChild('sayHiBtn') sayHiButton: ElementRef;
+  run: number = 0;
+
+  letMeHelp = '';
+  you = '';
+  dotAchieve = '';
+  yourGoals = '';
+  standOut = '';
+  smiley = '';
+  p1 = '';
+  p2 = '';
+  typing1 = '_';
+  typing2 = '';
+  typing3 = '';
+  timeouts: any[] = [];
+
+  constructor() { }
+
+  ngOnInit() {
+    this.clearVariables('Hello!');
+  }
+
+  sayHi() {
+    if (this.run === 0) {
+      this.makePresentation();
+    } else if (this.run === 1) {
+      this.clearVariables('Of course! ^.^');
+      this.waitFor(2500).then(() => {
+        this.makePresentation();
+        this.sayHiBtnName = 'Again';
+      });
+    } else if (this.run === 2) {
+      this.clearVariables('Oh fine. Here you go.');
+      this.waitFor(3500).then(() => {
+        this.makePresentation();
+      });
+    } else if (this.run === 3) {
+      this.clearVariables('Ok... Last time.');
+      this.waitFor(2500).then(() => {
+        this.makePresentation();
+      });
+    } else if (this.run === 4) {
+      this.clearVariables('').then(() => {
+        return this.say('Really?');
+      }).then(() => {
+        return this.waitFor(3000);
+      }).then(() => {
+        this.makePresentation();
+      })
+    } else if (this.run === 5) {
+      this.lastMessage();
+    }
+
+    if (this.isAboutBtnOn) {
+      //TODO go to about page
+    }
+  }
+
+  private clearVariables(initialValue?: string) {
+    this.timeouts.forEach((timeout) => {
+      clearTimeout(timeout);
+    });
+    return this.deleteWord('smiley', 0, 20).then(() => {
+      return this.deleteWord('smiley', 0, 20);
+    }).then(() => {
+      this.typing3 = '';
+      this.typing2 = '_';
+      return this.deleteWord('standOut', 0, 20);
+    }).then(() => {
+      this.typing2 = '';
+      this.typing1 = '_';
+      return this.deleteWord('p2', 0, 20);
+    }).then(() => {
+      return this.deleteWord('yourGoals', 0, 20);
+    }).then(() => {
+      return this.deleteWord('p1', 0, 20);
+    }).then(() => {
+      return this.deleteWord('dotAchieve', 0, 20);
+    }).then(() => {
+      return this.deleteWord('you', 0, 20);
+    }).then(() => {
+      return this.deleteWord('letMeHelp', 0, 20)
+    }).then(() => {
+      return this.say(initialValue);
+    });
+  }
+
+  knowMore() {
+
+  }
+
+  private lastMessage() {
+    this.run++;
+    this.isDisabled = true;
+    this.clearVariables('Alright. Enough.').then(() => {
+      return this.deleteWord('letMeHelp', 1500, 150);
+    }).then(() => {
+      return this.waitFor(700);
+    }).then(() => {
+      return this.say('No more "Again" button.');
+    }).then(() => {
+      return this.waitFor(1000);
+    }).then(() => {
+      return this.say('Go play around.');
+    }).then(() => {
+      return this.waitFor(5500);
+    }).then(() => {
+      if (window.pageYOffset < 50) {
+        return this.say('Are you still here?');
+      }
+      return Promise.reject('Good :D');
+    }).then(() => {
+      return this.waitFor(2500);
+    }).then(() => {
+      return this.say('OK');
+    }).then(() => {
+      return this.waitFor(1500);
+    }).then(() => {
+      return this.say('Wanna see something cool?');
+    }).then(() => {
+      return this.deleteWord('letMeHelp', 2500, 10);
+    }).then(() => {
+      return this.say('BOOM! The About button !', 30);
+    }).then(() => {
+      this.isDisabled = false;
+      this.sayHiBtnName = 'ABOUT';
+      this.isAboutBtnOn = true;
+      return this.deleteWord('letMeHelp', 1500);
+    }).then(() => {
+      return this.say('Good one, eh?', 30);
+    }).then(() => {
+      return this.waitFor(5000);
+    }).then(() => {
+      if (window.pageYOffset < 50) {
+        return this.say('Press it...', 100);
+      }
+      return Promise.reject('Good :D');
+    }).then(() => {
+      return this.waitFor(6000);
+    }).then(() => {
+      if (window.pageYOffset < 50) {
+        return this.say('Ok. You Win.');
+      }
+      return Promise.reject('Finally...');
+    }).then(() => {
+      return this.waitFor(1500);
+    }).then(() => {
+      return this.say('Bye');
+    }).then(() => {
+      return this.deleteWord('letMeHelp', 1500, 300);
+    }).then(() => {
+      return this.typeMainMessage();
+    }).catch(err => {
+      this.clearVariables(err).then(() => {
+        return this.deleteWord('letMeHelp', 5000);
+      }).then(() => {
+        this.isDisabled = false;
+        this.sayHiBtnName = 'ABOUT';
+        this.isAboutBtnOn = true;
+        this.typeMainMessage();
+      });
+    });
+  }
+
+  makePresentation() {
+    if (this.run > 0) {
+      this.run++;
+    } else {
+      this.sayHiBtnName = 'Start again';
+    }
+    this.clearVariables().then(() => {
+      return this.typeWord([
+        {word: 'My name is ', variableName: 'letMeHelp'}
+      ], 60);
+    }).then(() => {
+      return this.typeWord([
+        {word: 'Richard William', variableName: 'you'}
+      ], 60);
+    }).then(() => {
+      return this.waitFor(350);
+    }).then(() => {
+      return this.typeWord([
+        {word: ' I\'m a web developer ', variableName: 'p1'}
+      ], 60);
+    }).then(() => {
+      return this.typeWord([
+        {word: ' and content creator', variableName: 'p2'}
+      ], 70);
+    }).then(() => {
+      this.typing1 = '';
+      this.typing2 = '_';
+      return this.typeWord([
+        {word: ' with ' + this.getExperience() + ' years of experience', variableName: 'standOut'}
+      ], 70);
+    }).then(() => {
+      return this.waitFor(1500);
+    }).then(() => {
+      return this.clearVariables();
+    }).then(() => {
+      return this.typeMainMessage();
+    }).then(() => {
+      if (this.run === 0) {
+        this.sayHiBtnName = 'Repeat please';
+        this.run = 1;
+      }
+    });
+  }
+
+  typeMainMessage() {
+    return this.typeWord([
+      {word: 'I\'ll help ', variableName: 'letMeHelp'},
+      {word: 'You', variableName: 'you'},
+      {word: '.achieve', variableName: 'dotAchieve'},
+      {word: '(', variableName: 'p1'},
+      {word: 'your_goals', variableName: 'yourGoals'},
+      {word: ')', variableName: 'p2'}
+    ], 60).then(() => {
+      this.typing1 = '';
+      this.typing2 = '_';
+      return this.typeWord([
+        {word: 'and stand out in the crowd', variableName: 'standOut'}
+      ], 60);
+    }).then(() => {
+      this.typing2 = '';
+      this.typing3 = '_';
+      return this.waitFor(1700);
+    }).then(() => {
+      return this.typeWord([{word: ';D', variableName: 'smiley'}], 270);
+    });
+  }
+
+  say (message, typeSpeed = 60) {
+    if (!message || message.length === 0) {
+      return Promise.resolve('');
+    }
+    if (this.letMeHelp.length > 0) {
+      return this.deleteWord('letMeHelp').then(() => {
+        return this.typeWord([{word: message, variableName: 'letMeHelp'}], typeSpeed);
+      });
+    }
+    return this.typeWord([{word: message, variableName: 'letMeHelp'}], typeSpeed);
+  }
+
+  getExperience(): string {
+    return (new Date().getFullYear() - 2013).toString();
+  }
+
+  typeWord (words: Word[], typeSpeed = 100, pause = 100) {
+    return new Promise((resolve, reject) => {
+      let wait = 0;
+      for (let i = 0; i < words.length; i++) {
+        const word = words[i];
+        for (let j = 0; j < word.word.length; j++) {
+          const letter = word.word[j];
+          let timeout = setTimeout(() => {
+            this[word.variableName] += letter;
+            if (i + 1 === words.length && j + 1 === word.word.length) {
+              resolve('');
+            }
+          }, wait + typeSpeed * j);
+          this.timeouts.push(timeout);
+        }
+        wait += word.word.length * typeSpeed + (word.pause || pause);
+      }
+    });
+  }
+
+  deleteWord (variableName, wait = 250, deleteSpeed = 50) {
+    return new Promise((resolve, reject) => {
+      const string: string = this[variableName];
+      if (string.length === 0) {
+        resolve('');
+      }
+      let timeout = setTimeout(() => {
+        for (let i = 0; i < string.length; i++) {
+          let timeoutInner = setTimeout(() => {
+            this[variableName] = string.slice(0, string.length - i - 1);
+            if (i + 1 === string.length) {
+              this[variableName] = '';
+              resolve('');
+            }
+          }, deleteSpeed * i);
+          this.timeouts.push(timeoutInner);
+        }
+      }, wait);
+      this.timeouts.push(timeout);
+    });
+  }
+
+  waitFor (time: number) {
+    return new Promise((resolve, reject) => {
+      let timeout = setTimeout(() => {
+        resolve('');
+      }, time);
+      this.timeouts.push(timeout);
+    });
+  }
+}

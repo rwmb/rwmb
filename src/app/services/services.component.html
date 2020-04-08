@@ -1,0 +1,88 @@
+<div class="services-section" #container>
+  <h2 class="services-header">SERVE YOURSELF</h2>
+  <div class="services-content">
+
+    <!-- DEVELOPER -->
+    <div 
+      class="svc-dev service svc-card" 
+      [ngClass]="{'closed-card': card['dev'].isActive, invisible: !card['dev'].show, slideIn: card['dev'].show}"
+      (click)="toggleCard('dev')">
+      <div class="service-item-header">
+        <h3>DEVELOPER</h3>
+      </div>
+      <div class="svc-items">
+        <i class="fa fa-desktop"></i>
+        <h4>Web Design & Development</h4>
+        <i class="fa fa-pie-chart"></i>
+        <h4>Data Visualization and IoT</h4>
+        <i class="fa fa-gamepad"></i>
+        <h4>Game Development</h4>
+      </div>
+    </div>
+    
+    <div 
+      class="svc-dev service svc-info" 
+      [ngClass]="{'closed-card': !card['dev'].isActive, invisible: card['dev'].new}"
+      (click)="toggleCard('dev')">
+      <div class="service-item-header">
+          <h3>DEVELOPER</h3>
+      </div>
+      <p>Using the latest technologies, I'll help you achieve your goals by creating your website, with great focus on code quality and user experience, or implement your data visualization and IoT based projects in a legible and scalable way. And if you have a game design ready for development, I'll be your coder.</p>
+    </div>
+
+    <!-- DESIGNER -->
+    <div 
+      class="svc-design service svc-card"
+      [ngClass]="{'closed-card': card['design'].isActive, invisible: !card['design'].show, slideIn: card['design'].show}"
+      (click)="toggleCard('design')">
+      <div class="service-item-header">
+        <h3>DESIGNER</h3>
+      </div>
+      <div class="svc-items">
+        <i class="fa fa-tablet"></i>
+        <h4>Responsive UI & UX Design</h4>
+        <i class="fa fa-eye"></i>
+        <h4>Retina ready icons & Illustrations</h4>
+        <i class="fa fa-pencil"></i>
+        <h4>Brand and Logo Design</h4>
+      </div>
+    </div>
+
+    <div 
+      class="svc-design service svc-info"
+      [ngClass]="{'closed-card': !card['design'].isActive, invisible: card['design'].new}"
+      (click)="toggleCard('design')">
+      <div class="service-item-header">
+          <h3>DESIGNER</h3>
+      </div>
+      <p>With creativity and advanced designing tools, I'll help you achieve your goals by designing your UI and UX to work on every platform and screen sizes, as well as designing custom icons and illustrations. No logo yet? No problem! I'll help you out with branding too.</p>
+    </div>
+
+    <!-- PRODUCER -->
+    <div class="svc-producer service svc-card"
+      [ngClass]="{'closed-card': card['producer'].isActive, invisible: !card['producer'].show, slideIn: card['producer'].show}"
+      (click)="toggleCard('producer')">
+      <div class="service-item-header">
+        <h3>CONTENT PRODUCER</h3>
+      </div>
+      <div class="svc-items">
+        <i class="fa fa-film"></i>
+        <h4>Video Production</h4>
+        <i class="fa fa-play"></i>
+        <h4>2D and 3D animation</h4>
+        <i class="fa fa-picture-o"></i>
+        <h4>Image correction and editing</h4>
+      </div>
+    </div>
+
+    <div 
+      class="svc-producer service svc-info" 
+      [ngClass]="{'closed-card': !card['producer'].isActive, invisible: card['producer'].new}"
+      (click)="toggleCard('producer')">
+      <div class="service-item-header">
+        <h3>CONTENT PRODUCER</h3>
+        </div>
+        <p>With pixel accuracy and a broad experience creating internet content, I'll help you achieve your goals by producing and editing your videos and images for your website, company and Youtube! I will also create the amazing animations that will make your customers fall in love with your company.</p>
+      </div>
+  </div>
+</div>

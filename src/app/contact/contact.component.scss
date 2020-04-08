@@ -1,0 +1,188 @@
+@import 'src/sass/abstracts/variables';
+
+$control-shadow: -5px 5px 5px $primary-color-shadow;
+$error-shadow: -5px 5px 5px rgba(255, 0, 0, 0.3);
+
+.contact-section {
+  display: grid;
+  grid-template-columns: 1fr minmax(auto, 800px) 1fr;
+  grid-row-gap: 2rem 0;
+  grid-template-areas: 
+    ". title ."
+    ". message ."
+    ". handler . ";
+  padding: 3rem .5rem 0 .5rem;
+  background-color: $primary-dark-color;
+  justify-items: center;
+  transition: 200ms;
+}
+
+app-plocket {
+  align-self: end;
+  grid-row-start: 2;
+  /* autoprefixer: off */
+  grid-row-end: 3;
+  grid-column-start: 2;
+  /* autoprefixer: off */
+  grid-column-end: 3;
+  width: 50px;
+  height: auto;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.contact-header {
+  grid-area: title;
+}
+
+.contact-message {
+  grid-area: message;
+  width: 100%;
+  font-size: 80%;
+  max-height: 600px;
+  overflow: hidden;
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+
+  p {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.contact-message-handler {
+  grid-area: handler;
+  text-align: center;
+  overflow: hidden;
+  height: auto;
+  max-height: 0;
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 1em;
+  transition: max-height 1s, padding 200ms, background-color 1s;
+
+  &.message-sent {
+    background-color: $picton;
+    max-height: 200px;
+    padding: 5px;
+  }
+
+  &.message-fail {
+    max-height: 200px;
+    background-color: brown;
+    padding: 5px;
+  }
+}
+
+.form-control-group {
+  width: 100%;
+  margin-top: 1rem;
+  position: relative;
+  padding-top: 1rem;
+}
+
+.form-control-label {
+  position: absolute;
+  color: $placeholder-dark;
+  pointer-events: none;
+  font-family: $font-stack;
+  display: inline-block;
+  font-size: 90%;
+  transition: 200ms;
+  top: -5px;
+  left: 0;
+
+  &.empty {
+    top: 25px;
+    left: 15px;
+    font-size: 110%;
+  }
+}
+
+.form-control {
+  display: inline-block;
+  width: 100%;
+  border: none;
+  background: none;
+  border-bottom: 2px solid $picton;
+  border-left: 2px solid $picton;
+  transition: 300ms;
+  caret-color: $primary-color;
+
+  &:focus {
+    box-shadow: $control-shadow;
+    ~ .form-control-label {
+      color: $picton;
+      top: -5px;
+      left: 0;
+      font-size: 90%;
+    }
+  }
+}
+
+textarea.form-control {
+  resize: none;
+}
+
+.form-control-group label[for=message] {
+  align-self: start;
+}
+
+.form-contact {
+  padding: 1rem;
+  text-align: center;
+
+  .error-message {
+    background-color: $picton;
+    color: $primary-dark-color;
+    box-sizing: border-box;
+    border-radius: 5px;
+    width: 100%;
+    margin: 10px 0;
+    padding: 5px;
+    text-align: start;
+  }
+  
+  button[type=submit] {
+    cursor: pointer;
+    background-color: $picton;
+    font-size: 120%;
+    font-weight: 600;
+    padding: 10px 50px;
+    margin: 1rem 0;
+    color: $font-color;
+    border-radius: 10px;
+    border: none;
+    transition: 200ms;
+
+    &:hover,
+    &:active {
+      box-shadow: $control-shadow;
+    }
+  }
+}
+
+.form-control {
+  font-family: $font-stack;
+  color: $font-secondary;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  font-size: 105%;
+  border-radius: 10px;
+}
+
+input.ng-invalid.submitted,
+textarea.ng-invalid.submitted  {
+  box-shadow: $error-shadow;
+}
+
+.contact-sent {
+  height: 50%;
+  border-top: 2px solid $primary-color;
+  border-bottom: 2px solid $primary-color;
+  overflow: hidden;
+}

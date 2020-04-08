@@ -1,0 +1,84 @@
+$stroke-dash: 1000;
+
+.st0{
+  fill:none;
+  stroke:#000000;
+  stroke-width:3;
+  stroke-miterlimit:0;
+  height: 100%;
+  width: 100%;
+  stroke-dasharray: $stroke-dash;
+  stroke-dashoffset: $stroke-dash;
+}
+.st1{
+  fill:none;
+  stroke:#000000;
+  stroke-width:7;
+  stroke-miterlimit:10;
+  height: 100%;
+  width: 100%;
+  stroke-dasharray: $stroke-dash;
+  stroke-dashoffset: $stroke-dash;
+}
+.st2{
+  fill:none;
+  stroke:#000000;
+  stroke-width:4;
+  stroke-miterlimit:10;
+  height: 100%;
+  width: 100%;
+  stroke-dasharray: $stroke-dash;
+  stroke-dashoffset: $stroke-dash;
+}
+.st3{
+  fill:none;
+  stroke:#000000;
+  stroke-width:15;
+  stroke-miterlimit:10;
+  height: 100%;
+  width: 100%;
+  stroke-dasharray: $stroke-dash;
+  stroke-dashoffset: $stroke-dash;
+}
+.st4{
+  fill:none;
+  stroke:#000000;
+  stroke-width:7;
+  stroke-miterlimit:10;
+  height: 100%;
+  width: 100%;
+  stroke-dasharray: $stroke-dash;
+  stroke-dashoffset: $stroke-dash;
+}
+.st5{
+  fill:none;
+  stroke:#000000;
+  stroke-width:4;
+  stroke-miterlimit:10;
+  height: 100%;
+  width: 100%;
+  stroke-dasharray: $stroke-dash;
+  stroke-dashoffset: $stroke-dash;
+}
+.st6{
+  fill:none;
+  stroke:#000000;
+  stroke-width:2;
+  stroke-miterlimit:10;
+  height: 100%;
+  width: 100%;
+  stroke-dasharray: $stroke-dash;
+  stroke-dashoffset: $stroke-dash;
+}
+
+.bubbles {
+  stroke: blue !important;
+}
+
+.fish {
+  stroke: goldenrod !important;
+}
+
+.test {
+  stroke: white !important;
+}

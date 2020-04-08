@@ -1,0 +1,33 @@
+@import './mixins';
+
+// Colors
+$primary-color: #19B5FE;
+$primary-color-shadow: rgba(25, 181, 254, 0.4);
+$dark-shadow: rgba(0, 0, 0, 0.4);
+$picton: #22A7F0;
+$primary-dark-color: #2c2c2c;
+$primary-bg-color: #19B5FE;
+$clouds: #eeeeee;
+
+
+// Fonts
+$font-stack: 'Montserrat', sans-serif;
+$font-logo: 'Orbitron', sans-serif;;
+$font-color: #fff;
+$font-secondary: $clouds;
+$placeholder-dark: #636363;
+
+// Buttons
+$slide-menu-btn-size: 130%;
+
+// Responsiveness
+$break-small: 480px;
+$break-medium: 768px;
+$break-large: 1024px;
+//times
+$std-wait: 100ms;
+
+// Images
+$logo-size-big: 150px;
+$logo-size-medium: 130px;
+$logo-size-small: 110px;
