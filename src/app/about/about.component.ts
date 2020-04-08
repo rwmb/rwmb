@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, ElementRef, ViewChild, OnDestroy } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewEncapsulation, ElementRef, ViewChild, OnDestroy } from '@angular/core';
 import { TweenLite, TweenMax } from 'gsap';
 
 import { OutlineProfileComponent } from './svg/outline-profile/outline-profile.component';
@@ -16,7 +16,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./about.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class AboutComponent implements OnInit, OnDestroy {
+export class AboutComponent implements OnDestroy, AfterViewInit {
   @ViewChild('container') container: ElementRef;
   @ViewChild('aboutText') aboutText: ElementRef;
   @ViewChild('aboutImage') image: ElementRef;
@@ -29,7 +29,7 @@ export class AboutComponent implements OnInit, OnDestroy {
 
   constructor(private pageCtrlService: PageControllerService) { }
 
-  ngOnInit() {
+  ngAfterViewInit() {
     this.initializeImages();
     const subscription = this.pageCtrlService.screenLoad.subscribe(() => {
       this.setDrawingCallback();

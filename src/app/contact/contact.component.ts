@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { TweenMax, TweenLite } from 'gsap';
@@ -30,7 +30,7 @@ import { Subscription } from 'rxjs';
     ])
   ]
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent implements OnInit, AfterViewChecked {
   @ViewChild('container') container: ElementRef;
   @ViewChild('form') form: NgForm;
   @ViewChild('plocket') plocket: PlocketComponent;
@@ -46,6 +46,10 @@ export class ContactComponent implements OnInit {
     private pageCtrlService: PageControllerService) { }
 
   ngOnInit() {
+    // todo
+  }
+
+  ngAfterViewChecked() {
     // setTimeout(() => {
     //   this.startDelivery().then(() => {
     //     this.sending().then(() => {
@@ -63,7 +67,7 @@ export class ContactComponent implements OnInit {
     // this.messageFail = true;
     // }, 10000);
 
-    this.hideForm();
+    // this.hideForm();
     const subscription = this.pageCtrlService.screenLoad.subscribe(() => {
       this.setDisposeCardsCallback();
       subscription.unsubscribe();

@@ -110,21 +110,21 @@ $card-header-transition: cubic-bezier(.7,0,.3,1);
 .svc-dev {
   grid-area: dev;
   .service-item-header {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9)), url('~assets/images/keyboard.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9)), url('src/assets/images/keyboard.jpg');
   }
 }
 
 .svc-design {
   grid-area: design;
   .service-item-header {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9)), url('~assets/images/design.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9)), url('src/assets/images/design.jpg');
   }
 }
 
 .svc-producer {
   grid-area: producer;
   .service-item-header {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9)), url('~assets/images/ps.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9)), url('src/assets/images/ps.jpg');
   }
 }
 
