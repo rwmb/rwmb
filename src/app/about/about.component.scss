@@ -54,6 +54,18 @@
     }
   }
 
+  app-bunny,
+  app-insect,
+  app-pirate,
+  app-diver {
+    z-index: 100;
+
+    path,
+    circle{
+      stroke-width: 4;
+    }
+  }
+
   img,
   outline-profile,
   app-bunny,

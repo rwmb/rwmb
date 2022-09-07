@@ -190,19 +190,19 @@ export class ContactComponent implements OnInit, AfterViewChecked {
     });
   }
 
-  onSubmit() {
+  async onSubmit() {
     if (this.form.invalid || this.isSending || this.isSent) {
       return;
     }
-    this.startDelivery().then(() => {
-      this.sending().then(() => {
-        return this.sending();
-      }).then(() => {
-        this.achieveDelivery();
-      }).catch(() => {
-        this.failDelivery();
-      });
-    });
+    
     this.sendMessage();
+
+    try {
+      await this.startDelivery();
+      await this.sending();
+      await this.achieveDelivery();
+    } catch (error) {
+      this.failDelivery();
+    }
   }
 }

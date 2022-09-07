@@ -1,27 +1,68 @@
-# DotachieveRefactoring
+<!--- **Welcome to the code** =) Feel free to take a look! --->
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
+<h1 align="center"> Hi there 👋 </h1>
+<h3 align="center"> My name is <b>Richard William. I'm a 28 y/o experienced Software Engineer from Brazil. I've been creating apps and solutions that facilitate lives and develop businesses all across the world for over 8 years. </h3>
 
-## Development server
+&nbsp;
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+<div align="center" margin="20px">
+  <img src="https://i.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.webp"></img>
+</div>
 
-## Code scaffolding
+&nbsp;
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<h4 align="center">Here are some of the technologies I've worked with in my career</h4>
+&nbsp;
+<div id="tech-badges" style="background-color:white">
+  <div align="center">
+    <img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" width="50px"></img>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original-wordmark.svg" width="50px"></img>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-original-wordmark.svg" width="50px"></img>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/sass/sass-original.svg" width="50px"></img>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original-wordmark.svg" width="50px"></img>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg" width="50px"></img>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/angularjs/angularjs-original.svg" width="50px"></img>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/mongodb/mongodb-original-wordmark.svg" width="50px"></img>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/jquery/jquery-original-wordmark.svg" width="50px"></img>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/googlecloud/googlecloud-original-wordmark.svg" width="50px"></img>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/graphql/graphql-plain-wordmark.svg" width="50px"></img>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/git/git-original-wordmark.svg" width="50px"></img>
+  </div>
+  <div align="center">
+    <img src="https://github.com/devicons/devicon/blob/master/icons/c/c-original.svg" width="50px"></img>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/cplusplus/cplusplus-original.svg" width="50px"></img>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/csharp/csharp-original.svg" width="50px"></img>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/socketio/socketio-original-wordmark.svg" width="50px"></img>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/vscode/vscode-original.svg" width="50px"></img>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/firebase/firebase-plain-wordmark.svg" width="50px"></img>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/docker/docker-original.svg" width="50px"></img>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/express/express-original-wordmark.svg" width="50px"></img>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/github/github-original.svg" width="50px"></img>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/bootstrap/bootstrap-original.svg" width="50px"></img>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/jasmine/jasmine-plain-wordmark.svg" width="50px"></img>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/jest/jest-plain.svg" width="50px"></img>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/jira/jira-original-wordmark.svg" width="50px"></img>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/circleci/circleci-plain-wordmark.svg" width="50px"></img>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/linux/linux-original.svg" width="50px"></img>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/mysql/mysql-original-wordmark.svg" width="50px"></img>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/opengl/opengl-original.svg" width="50px"></img>
+  </div>
+</div>
 
-## Build
+&nbsp;
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+<h3 align="center"> 👓 Right now I'm studying Python and React 👓 </h3>
 
-## Running unit tests
+&nbsp;
+&nbsp;
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+#### 📫 Check out my social links:
+<div id="social-badges">
+  <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/richardwmb/">
+    <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
+  </a>
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+   <a target="_blank" rel="noopener noreferrer" href="https://dotachieve.com/">
+    <img src="https://img.shields.io/badge/Presentation-success?style=for-the-badge&logo=angular&logoColor=white" alt="Presentation App"/>
+  </a>
+</div>
