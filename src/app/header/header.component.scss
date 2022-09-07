@@ -36,12 +36,12 @@ $hide-title: 300px;
     max-height: 200px;
     border-radius: 3px;
     width: auto;
-    margin: 5px;
-    font-family: 'Orbitron';
+    margin: 10px;
+    font-family: $font-logo;
     font-size: 120%;
-    font-weight: 700;
+    font-weight: 500;
     span {
-      font-size: 70%;
+      font-weight: 900;
     }
 
     @media screen and (max-width: $break-large) {
