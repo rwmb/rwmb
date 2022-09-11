@@ -22,7 +22,7 @@ export class InsectComponent {
   private animate() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve();
+        resolve('');
       }, 5000);
     });
   }

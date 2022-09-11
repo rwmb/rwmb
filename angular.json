@@ -27,7 +27,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/sass/styles.scss",
+              "src/styles.scss",
               "src/assets/css/fonts/fonts.css",
               "node_modules/font-awesome/scss/font-awesome.scss"
             ],
@@ -117,5 +117,9 @@
           }
         }
       }
-    }}
+    }
+  },
+  "cli": {
+    "analytics": false
+  }
 }

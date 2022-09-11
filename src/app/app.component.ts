@@ -1,6 +1,7 @@
 import { Component, AfterViewInit, ViewChild} from '@angular/core';
 
 import { initializeApp } from "firebase/app";
+import { gsap } from 'gsap';
 
 import { LoadingScreenComponent } from './shared/loading-screen/loading-screen.component';
 import { PageControllerService } from './shared/services/page-controller.service';
@@ -41,7 +42,7 @@ export class AppComponent implements AfterViewInit {
     this.setupComponentSection();
     setTimeout(() => {
       this.isLoading = false;
-      TweenLite.to(this.loading.container.nativeElement, 0.5, {x: '-100%'});
+      gsap.to(this.loading.container.nativeElement, { duration: 0.5, x: '-100%'}).play();
       this.pageCtrlService.screenLoad.next(true);
     }, 500);
   }
