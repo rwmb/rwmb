@@ -72,7 +72,7 @@ export class ContactComponent implements OnInit, AfterViewChecked {
     if (result.error) {
       throw new Error(result.error);
     }
-    this.title = 'great!';
+    this.title = 'lift off!';
     this.messageFail = false;
     this.isSent = true;
   }
@@ -106,7 +106,7 @@ export class ContactComponent implements OnInit, AfterViewChecked {
       gsap.to(this.container.nativeElement, {
         duration: 2,
         delay: 1,
-        height: 220,
+        height: 240,
         onComplete: () => {
           resolve('');
         }
