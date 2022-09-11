@@ -48,5 +48,6 @@ testem.log
 Thumbs.db
 
 # Firebase
+.firebase/*
 .firebaserc
 firestore-debug.log

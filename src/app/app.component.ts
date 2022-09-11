@@ -44,14 +44,14 @@ export class AppComponent implements AfterViewInit {
       this.isLoading = false;
       gsap.to(this.loading.container.nativeElement, { duration: 0.5, x: '-100%'}).play();
       this.pageCtrlService.screenLoad.next(true);
-    }, 500);
+    }, 1500);
   }
 
   setupComponentSection(event?: any) {
     this.pageCtrlService.setPageSection('home', this.homeSection.container, 0);
     this.pageCtrlService.setPageSection('about', this.aboutSection.container, -30);
     this.pageCtrlService.setPageSection('services', this.servicesSection.container, -30);
-    this.pageCtrlService.setPageSection('contact', this.contactSection.container, -10);
+    this.pageCtrlService.setPageSection('contact', this.contactSection.container, -30);
   }
 
   _window(): any {
