@@ -1,4 +1,4 @@
-import { ElementRef } from '@angular/core';
+import { ElementRef, Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
 export class PageScrollSubject<T> extends Subject<T> {
@@ -20,6 +20,7 @@ interface IPageSections {
   [index: string]: IPageSection;
 }
 
+@Injectable()
 export class PageControllerService {
   lastSectionY = 0;
   pageSections = {} as IPageSections;
