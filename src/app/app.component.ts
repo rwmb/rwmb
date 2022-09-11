@@ -44,7 +44,7 @@ export class AppComponent implements AfterViewInit {
       this.isLoading = false;
       gsap.to(this.loading.container.nativeElement, { duration: 0.5, x: '-100%'}).play();
       this.pageCtrlService.screenLoad.next(true);
-    }, 1500);
+    }, 1300);
   }
 
   setupComponentSection(event?: any) {
