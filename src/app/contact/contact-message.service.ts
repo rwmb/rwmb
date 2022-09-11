@@ -1,29 +1,27 @@
 import { Injectable } from '@angular/core';
-import * as fs from 'firebase/firestore';
+import { collection, getFirestore, addDoc, connectFirestoreEmulator } from 'firebase/firestore';
 
 
 @Injectable()
 export class ContactMessageService {
-  private database: fs.Firestore;
+  private database;
 
   constructor() {
-    setTimeout(() => {
-      this.database = fs.getFirestore();
-    }, 10000);
   }
 
   async createContactMessage(message) {
-    let docRef: fs.DocumentReference;
+    this.database = getFirestore();
     try {
-      docRef = await fs.addDoc(fs.collection(this.database, "contacts"), {
+      const ref = collection(this.database, 'contacts');
+      const docRef = await addDoc(ref, {
         ...message,
         read: false,
         relevant: true,
         responded: false
       });
+      return { error: null, id: docRef.id };
     } catch (error) {
       return { error }
     }
-    return { error: null, id: docRef.id };
   }
 }

@@ -26,7 +26,7 @@ export class AppComponent implements AfterViewInit {
   @ViewChild('services') servicesSection: ServicesComponent;
   @ViewChild('contact') contactSection: ContactComponent;
 
-  ngOnInt() {
+  ngOnInit() {
     initializeApp({
       apiKey: environment.apiKey,
       authDomain: environment.authDomain,

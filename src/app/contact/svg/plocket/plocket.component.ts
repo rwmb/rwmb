@@ -32,14 +32,16 @@ export class PlocketComponent {
   fall() {
     return new Promise((resolve, reject) => {
       const timeline = gsap.timeline();
-      timeline.to('.plocket', 1, {
+      timeline.to('.plocket', {
+        duration: 0.5,
         rotation: 90,
-        ease: Expo.easeIn,
         transformOrigin: 'bottom right'
-      }).to('.plocket', 0.5, {
+      }).to('.plocket', {
+        duration: 0.5,
         maxHeight: 0,
         delay: 1.5
-      }).to('.plocket', 0.1, {
+      }).to('.plocket', {
+        duration: 0.1,
         rotation: 0,
         transformOrigin: 'bottom right',
         onComplete: () => {
@@ -50,21 +52,17 @@ export class PlocketComponent {
   }
 
   launch() {
-    return new Promise((resolve, reject) => {
-      gsap.to('.plocket', {
-        duration: 2,
-        ease: "expo.out",
-        transform: 'translateY(-500px)',
-        transformOrigin: 'bottom right',
-        onComplete: () => {
-          TweenLite.to('.plocket', 0.1, {
-            maxHeight: 0,
-            onComplete: () => {
-              resolve('');
-            }
-          });
-        }
-      });
-    });
+    gsap.to('.plocket', {
+      duration: 2,
+      ease: "pwoer3.out",
+      transform: 'translateY(-300px)',
+      transformOrigin: 'bottom right',
+    }).play();
+    gsap.to('.plocket', {
+      duration: 0.5,
+      delay: 1,
+      ease: "pwoer1.out",
+      opacity: 0
+    }).play();
   }
 }

@@ -11,7 +11,7 @@ $error-shadow: -5px 5px 5px rgba(255, 0, 0, 0.3);
     ". title ."
     ". message ."
     ". handler . ";
-  padding: 3rem .5rem 0 .5rem;
+  padding: 3rem .5rem 2rem .5rem;
   background-color: $primary-dark-color;
   justify-items: center;
   transition: 200ms;
@@ -142,8 +142,8 @@ textarea.form-control {
   text-align: center;
 
   .error-message {
-    background-color: $picton;
-    color: $primary-dark-color;
+    background-color: brown;
+    color: white;
     box-sizing: border-box;
     border-radius: 5px;
     width: 100%;
@@ -184,6 +184,12 @@ textarea.form-control {
 input.ng-invalid.submitted,
 textarea.ng-invalid.submitted  {
   box-shadow: $error-shadow;
+  border-bottom: 2px solid brown;
+  border-left: 2px solid brown;
+
+  &:focus ~ .form-control-label {
+    color: brown;
+  }
 }
 
 .contact-sent {

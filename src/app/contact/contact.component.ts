@@ -3,11 +3,11 @@ import { NgForm } from '@angular/forms';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import {gsap} from 'gsap';
 
-import { ContactMessageService } from '../shared/services/contact-message.service';
 import { PlocketComponent } from './svg/plocket/plocket.component';
 import { configs } from '../shared/configs/configs';
 import { PageControllerService } from '../shared/services/page-controller.service';
 import { Subscription } from 'rxjs';
+import { ContactMessageService } from './contact-message.service';
 
 @Component({
   selector: 'app-contact',
@@ -67,19 +67,14 @@ export class ContactComponent implements OnInit, AfterViewChecked {
 
   async sendMessage() {
     this.isSending = true;
-
-    console.log(this.form.value);
     const result = await this.contactMsgSvc.createContactMessage(this.form.value);
     this.isSending = false;
     if (result.error) {
-      return this.messageFail = true;
+      throw new Error(result.error);
     }
     this.title = 'great!';
     this.messageFail = false;
     this.isSent = true;
-
-    //err
-    return this.messageFail = true;
   }
 
   async shake(): Promise<string> {
@@ -92,26 +87,13 @@ export class ContactComponent implements OnInit, AfterViewChecked {
     return this.shake();
   }
 
-  hideForm(): Promise<string> {
-    return new Promise((resolve, reject) => {
-      gsap.to(this.contactMessage.nativeElement, 0.5, {
-        transform: 'rotateY(90deg)',
-        borderTop: '2px solid ' + configs.primaryColor,
-        borderBottom: '2px solid ' + configs.primaryColor,
-        onComplete: () => {
-          resolve('');
-        }
-      });
-    });
-  }
-
   minimizeForm(): Promise<string> {
     return new Promise((resolve, reject) => {
-      gsap.to(this.contactMessage.nativeElement, 0.5, {
+      gsap.to(this.contactMessage.nativeElement, {
+        duration: 0.5,
         transform: 'rotateY(90deg)',
         borderTop: '2px solid ' + configs.primaryColor,
         borderBottom: '2px solid ' + configs.primaryColor,
-        maxHeight: 300,
         onComplete: () => {
           resolve('');
         }
@@ -121,8 +103,10 @@ export class ContactComponent implements OnInit, AfterViewChecked {
 
   closeForm(): Promise<string> {
     return new Promise((resolve, reject) => {
-      gsap.to(this.contactMessage.nativeElement, 0.5, {
-        maxHeight: 0,
+      gsap.to(this.container.nativeElement, {
+        duration: 2,
+        delay: 1,
+        height: 220,
         onComplete: () => {
           resolve('');
         }
@@ -132,7 +116,8 @@ export class ContactComponent implements OnInit, AfterViewChecked {
 
   openForm(): Promise<string> {
     return new Promise((resolve, reject) => {
-      gsap.to(this.contactMessage.nativeElement, 0.5, {
+      gsap.to(this.contactMessage.nativeElement, {
+        duration: 0.5,
         transform: 'rotateY(0deg)',
         borderTop: '2px solid transparent',
         borderBottom: '2px solid transparent',
@@ -146,17 +131,16 @@ export class ContactComponent implements OnInit, AfterViewChecked {
 
   failDelivery() {
     this.isSending = false;
-    this.plocket.fall().then(() => {
-      return this.openForm();
-    }).then(() => {
-      setTimeout(() => {
-        this.messageFail = false;
-      }, 1000);
-    });
-  }
-
-  async achieveDelivery() {
-    
+    this.messageFail = true;
+    this.plocket
+      .fall()
+      .then(() => {
+        return this.openForm();
+      }).then(() => {
+        setTimeout(() => {
+          this.messageFail = false;
+        }, 5000);
+      });
   }
 
   async onSubmit() {
@@ -172,8 +156,8 @@ export class ContactComponent implements OnInit, AfterViewChecked {
       await this.plocket.launch();
       this.closeForm();
     } catch (error) {
-      console.error(error);
       this.failDelivery();
+      console.error(error);
     }
   }
 }

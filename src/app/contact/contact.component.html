@@ -3,7 +3,6 @@
   <app-plocket #plocket class="plocket"></app-plocket>
   <div class="contact-message" #contactMessage>
       <p>Tell me a little bit about your project, how long you expect it to take and your budget.</p>
-      <p class="note">The information you enter here is encrypted from end to end!</p>
       <form 
       class="form-contact" 
       (ngSubmit)="onSubmit()" #form="ngForm">
@@ -54,6 +53,7 @@
           class="error-message"
           [@errorMessage]="message.invalid && form.submitted ? 'bad' : 'good'"
           >Oops, you forgot something.</p>
+          <p class="note">The information you enter here is encrypted from end to end and only I will have access to it!</p>
         <button 
           type="submit"
           class="btn-submit">SEND</button>
@@ -61,7 +61,11 @@
   </div>
   <p 
     class="contact-message-handler message-sent"
-    [ngClass]="{'open': isSent}">Lift off! We have lift off! I'll respond as soon as possible.</p>
+    [ngClass]="{'open': isSent}">
+      Lift off! Your message was received! I'll respond as soon as possible.
+      <br/>
+      In the meantime, checkout my social links!
+  </p>
   <p 
     class="contact-message-handler message-fail"
     [ngClass]="{'open': messageFail}">Mayday! Something went wrong. You can try again or reach me through the links below.</p>
