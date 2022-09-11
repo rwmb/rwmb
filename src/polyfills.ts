@@ -16,7 +16,7 @@ import 'core-js/es/set';
 import 'core-js/es/reflect';
 
 import 'core-js/es/reflect';
-import 'zone.js/dist/zone';
+import 'zone.js';
 
 // If you need to support the browsers/features below, uncomment the import
 // and run `npm install import-name-here';
