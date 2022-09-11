@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { TweenLite, TimelineMax, Expo, TimelineLite } from 'gsap';
+import { gsap } from 'gsap';
 
 
 @Component({
@@ -10,49 +10,29 @@ import { TweenLite, TimelineMax, Expo, TimelineLite } from 'gsap';
 export class PlocketComponent {
 
   arrive() {
-    return new Promise((resolve, reject) => {
-      TweenLite.to('.plocket', 1, {
-        maxHeight: 500,
-        onComplete: () => {
-          resolve('');
-        }
-      });
+    return gsap.to('.plocket', {
+      duration: 1,
+      maxHeight: 500
     });
   }
 
-  shake() {
-    return new Promise((resolve, reject) => {
-      TweenLite.apply('.plocket', {transformOrigin: '50% 100%'});
-      const tl1 = new TimelineMax();
-      tl1.to('.plocket', 0.05, {
-        rotation: 3
-      }).to('.plocket', 0.05, {
-        rotation: -3
-      }).to('.plocket', 0.05, {
-        rotation: 0
-      }).to('.plocket', 0.05, {
-        rotation: 3
-      }).to('.plocket', 0.05, {
-        rotation: -3
-      }).to('.plocket', 0.05, {
-        rotation: 0
-      }).to('.plocket', 0.05, {
-        rotation: 3
-      }).to('.plocket', 0.05, {
-        rotation: -3
-      }).to('.plocket', 0.05, {
-        rotation: 0,
-        onComplete: () => {
-          resolve('');
-        }
-      });
-    });
+  async shake() {
+    gsap.set('.plocket', { transformOrigin: '50% 100%' });
+    const timeline = gsap.timeline();
+    timeline.to('.plocket', {
+      duration: 0.05,
+      rotation: 2
+    }).to('.plocket', {
+      duration: 0.05,
+      rotation: -2
+    }).repeat(5);
+    await timeline.play();
   }
 
   fall() {
     return new Promise((resolve, reject) => {
-      const tl1 = new TimelineLite();
-      tl1.to('.plocket', 1, {
+      const timeline = gsap.timeline();
+      timeline.to('.plocket', 1, {
         rotation: 90,
         ease: Expo.easeIn,
         transformOrigin: 'bottom right'
@@ -71,8 +51,9 @@ export class PlocketComponent {
 
   launch() {
     return new Promise((resolve, reject) => {
-      TweenLite.to('.plocket', 2, {
-        ease: Expo.easeIn,
+      gsap.to('.plocket', {
+        duration: 2,
+        ease: "expo.out",
         transform: 'translateY(-500px)',
         transformOrigin: 'bottom right',
         onComplete: () => {

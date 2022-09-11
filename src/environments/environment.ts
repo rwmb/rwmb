@@ -4,5 +4,8 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  projectId: 'dotachieve-79283',
+  authDomain: 'http://localhost:8080',
+  apiKey: 'AIzaSyDne5HA0t7VhgTe3-1ACQi0FfnwOwQnjM8',
 };

@@ -1,5 +1,6 @@
-import { Component, AfterViewInit, ViewChild, HostListener} from '@angular/core';
-import { TweenLite } from 'gsap';
+import { Component, AfterViewInit, ViewChild} from '@angular/core';
+
+import { initializeApp } from "firebase/app";
 
 import { LoadingScreenComponent } from './shared/loading-screen/loading-screen.component';
 import { PageControllerService } from './shared/services/page-controller.service';
@@ -7,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ServicesComponent } from './services/services.component';
 import { ContactComponent } from './contact/contact.component';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +24,14 @@ export class AppComponent implements AfterViewInit {
   @ViewChild('about') aboutSection: AboutComponent;
   @ViewChild('services') servicesSection: ServicesComponent;
   @ViewChild('contact') contactSection: ContactComponent;
+
+  ngOnInt() {
+    initializeApp({
+      apiKey: environment.apiKey,
+      authDomain: environment.authDomain,
+      projectId: environment.projectId,
+    });
+  }
 
   ngAfterViewInit() {
     if (this._window().isEdge) {

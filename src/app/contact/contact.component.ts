@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { TweenMax, TweenLite } from 'gsap';
+import {gsap} from 'gsap';
 
 import { ContactMessageService } from '../shared/services/contact-message.service';
 import { PlocketComponent } from './svg/plocket/plocket.component';
@@ -26,7 +26,7 @@ import { Subscription } from 'rxjs';
         overflow: 'hidden',
         maxHeight: '0px'
       })),
-      transition('good <=> bad', animate(200))
+      transition('good <=> bad', animate(200)),
     ])
   ]
 })
@@ -50,24 +50,6 @@ export class ContactComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked() {
-    // setTimeout(() => {
-    //   this.startDelivery().then(() => {
-    //     this.sending().then(() => {
-    //       return this.sending();
-    //     }).then(() => {
-    //       this.achieveDelivery();
-    //     }).catch(() => {
-    //       this.failDelivery();
-    //     });
-    //   });
-    // }, 5000);
-
-    // setTimeout(() => {
-    //   this.isSent = true;
-    // this.messageFail = true;
-    // }, 10000);
-
-    // this.hideForm();
     const subscription = this.pageCtrlService.screenLoad.subscribe(() => {
       this.setDisposeCardsCallback();
       subscription.unsubscribe();
@@ -83,47 +65,36 @@ export class ContactComponent implements OnInit, AfterViewChecked {
     this.subscriptions.push(subscription);
   }
 
-  sendMessage() {
+  async sendMessage() {
     this.isSending = true;
-    this.subscription = this.contactMsgSvc.sendMessage(this.form.value)
-      .subscribe((res: {success: boolean, error: string}) => {
-        console.log(res);
-        this.isSending = false;
-        if (!res.success) {
-          return this.messageFail = true;
-        }
-        this.title = 'great!';
-        this.messageFail = false;
-        this.isSent = true;
-      }, err => {
-        return this.messageFail = true;
-      });
+
+    console.log(this.form.value);
+    const result = await this.contactMsgSvc.createContactMessage(this.form.value);
+    this.isSending = false;
+    if (result.error) {
+      return this.messageFail = true;
+    }
+    this.title = 'great!';
+    this.messageFail = false;
+    this.isSent = true;
+
+    //err
+    return this.messageFail = true;
   }
 
-  sending(): Promise<string> {
-    return this.plocket.shake().then(() => {
-      if (this.messageFail) {
-        return Promise.reject('');
-      } else if (this.isSent) {
-        return Promise.resolve('');
-      }
-      return this.sending();
-    });
-  }
-
-  startDelivery(): Promise<string> {
-    return new Promise((resolve, reject) => {
-      this.minimizeForm().then(() => {
-        this.plocket.arrive().then(() => {
-          resolve('');
-        });
-      });
-    });
+  async shake(): Promise<string> {
+    await this.plocket.shake();
+    if (this.messageFail) {
+      return Promise.reject('');
+    } else if (this.isSent) {
+      return Promise.resolve('');
+    }
+    return this.shake();
   }
 
   hideForm(): Promise<string> {
     return new Promise((resolve, reject) => {
-      TweenLite.to(this.contactMessage.nativeElement, 0.5, {
+      gsap.to(this.contactMessage.nativeElement, 0.5, {
         transform: 'rotateY(90deg)',
         borderTop: '2px solid ' + configs.primaryColor,
         borderBottom: '2px solid ' + configs.primaryColor,
@@ -136,7 +107,7 @@ export class ContactComponent implements OnInit, AfterViewChecked {
 
   minimizeForm(): Promise<string> {
     return new Promise((resolve, reject) => {
-      TweenLite.to(this.contactMessage.nativeElement, 0.5, {
+      gsap.to(this.contactMessage.nativeElement, 0.5, {
         transform: 'rotateY(90deg)',
         borderTop: '2px solid ' + configs.primaryColor,
         borderBottom: '2px solid ' + configs.primaryColor,
@@ -150,7 +121,7 @@ export class ContactComponent implements OnInit, AfterViewChecked {
 
   closeForm(): Promise<string> {
     return new Promise((resolve, reject) => {
-      TweenLite.to(this.contactMessage.nativeElement, 0.5, {
+      gsap.to(this.contactMessage.nativeElement, 0.5, {
         maxHeight: 0,
         onComplete: () => {
           resolve('');
@@ -161,7 +132,7 @@ export class ContactComponent implements OnInit, AfterViewChecked {
 
   openForm(): Promise<string> {
     return new Promise((resolve, reject) => {
-      TweenLite.to(this.contactMessage.nativeElement, 0.5, {
+      gsap.to(this.contactMessage.nativeElement, 0.5, {
         transform: 'rotateY(0deg)',
         borderTop: '2px solid transparent',
         borderBottom: '2px solid transparent',
@@ -184,24 +155,24 @@ export class ContactComponent implements OnInit, AfterViewChecked {
     });
   }
 
-  achieveDelivery() {
-    this.plocket.launch().then(() => {
-      this.closeForm();
-    });
+  async achieveDelivery() {
+    
   }
 
   async onSubmit() {
     if (this.form.invalid || this.isSending || this.isSent) {
       return;
     }
-    
-    this.sendMessage();
 
     try {
-      await this.startDelivery();
-      await this.sending();
-      await this.achieveDelivery();
+      await this.minimizeForm();
+      await this.plocket.arrive();
+      this.shake();
+      await this.sendMessage();
+      await this.plocket.launch();
+      this.closeForm();
     } catch (error) {
+      console.error(error);
       this.failDelivery();
     }
   }

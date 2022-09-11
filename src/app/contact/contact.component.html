@@ -3,7 +3,7 @@
   <app-plocket #plocket class="plocket"></app-plocket>
   <div class="contact-message" #contactMessage>
       <p>Tell me a little bit about your project, how long you expect it to take and your budget.</p>
-      <p>I will be the only one with access to this data, so don't worry! Everything is safe!</p>
+      <p class="note">The information you enter here is encrypted from end to end!</p>
       <form 
       class="form-contact" 
       (ngSubmit)="onSubmit()" #form="ngForm">
@@ -19,8 +19,8 @@
             #name="ngModel">
           <label for="name" class="form-control-label" [ngClass]="{empty: !form.value.name}">Name</label>
         </div>
-        <!-- <p class="error-message"
-          [@errorMessage]="name.invalid && form.submitted ? 'bad' : 'good'">Don't be shy, what's your name?</p> -->
+        <p class="error-message"
+          [@errorMessage]="name.invalid && form.submitted ? 'bad' : 'good'">Don't be shy! What's your name?</p>
         <div class="form-control-group">
           <input
             class="form-control"
@@ -34,8 +34,8 @@
             #email="ngModel">
             <label for="email" class="form-control-label" [ngClass]="{empty: !form.value.email}">Email</label>
         </div>
-        <!-- <p class="error-message"
-          [@errorMessage]="email.invalid && form.submitted ? 'bad' : 'good'">It will be easier to contact you with your email.</p> -->
+        <p class="error-message"
+          [@errorMessage]="email.invalid && form.submitted ? 'bad' : 'good'">It will be easier to contact you with your email.</p>
         <div class="form-control-group">
           <textarea
             class="form-control"
@@ -43,16 +43,13 @@
             name="message" 
             id="idMessage"
             cols="30"
-            rows="8"
+            rows="6"
             autocomplete="off"
             required
             ngModel
             #message="ngModel"></textarea>
             <label for="message" class="form-control-label" [ngClass]="{empty: !form.value.message}">Message</label>
         </div>
-        <!-- <p class="error-message"
-          [@errorMessage]="message.invalid && form.submitted ? 'bad' : 'good'">Drop me a line so I know what you have in mind.</p> -->
-          
         <p 
           class="error-message"
           [@errorMessage]="message.invalid && form.submitted ? 'bad' : 'good'"
@@ -63,9 +60,9 @@
       </form>
   </div>
   <p 
-    class="contact-message-handler"
-    [ngClass]="{'message-sent': isSent}">Lift off! We have lift off! I'll respond as soon as possible.</p>
+    class="contact-message-handler message-sent"
+    [ngClass]="{'open': isSent}">Lift off! We have lift off! I'll respond as soon as possible.</p>
   <p 
-    class="contact-message-handler"
-    [ngClass]="{'message-fail': messageFail}">Mayday! Something went wrong. You can try again or reach me through the links below.</p>
+    class="contact-message-handler message-fail"
+    [ngClass]="{'open': messageFail}">Mayday! Something went wrong. You can try again or reach me through the links below.</p>
 </div>

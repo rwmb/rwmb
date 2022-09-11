@@ -1,16 +1,29 @@
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
+import * as fs from 'firebase/firestore';
 
 
 @Injectable()
 export class ContactMessageService {
-  // TODO: fix this service
-  // constructor(private httpClient: HttpClient) {}
-  constructor() {}
+  private database: fs.Firestore;
 
-  sendMessage (message) {
-    console.log(message);
-    // return this.httpClient.put('/api/sendMessage', message);
-    return of(null);
+  constructor() {
+    setTimeout(() => {
+      this.database = fs.getFirestore();
+    }, 10000);
+  }
+
+  async createContactMessage(message) {
+    let docRef: fs.DocumentReference;
+    try {
+      docRef = await fs.addDoc(fs.collection(this.database, "contacts"), {
+        ...message,
+        read: false,
+        relevant: true,
+        responded: false
+      });
+    } catch (error) {
+      return { error }
+    }
+    return { error: null, id: docRef.id };
   }
 }
