@@ -48,6 +48,7 @@ testem.log
 Thumbs.db
 
 # Firebase
-.firebase/*
-.firebaserc
-firestore-debug.log
+/.firebase
+/.firebaserc
+/firestore-debug.log
+/src/environments/*
