@@ -36,6 +36,7 @@ export class HomeComponent implements OnInit {
   }
 
   presentApp() {
+    // TODO: clean this mess...
     this.waitFor(3000).then(() => {
       return this.clearVariables('Hello!');
     }).then(() => {
@@ -53,13 +54,13 @@ export class HomeComponent implements OnInit {
       return this.waitFor(500);
     }).then(() => {
       return this.typeWord([
-        {word: 'I\'m a web developer ', variableName: 'standOut'}
+        {word: 'I\'m a Software Engineer ', variableName: 'standOut'}
       ], 50);
     }).then(() => {
       this.typing2 = '';
       this.typing3 = '_';
       return this.typeWord([
-        {word: 'and digital content producer.', variableName: 'smiley'}
+        {word: 'and Digital Content Producer.', variableName: 'smiley'}
       ], 50);
     }).then(() => {
       return this.waitFor(1000);
