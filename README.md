@@ -1,7 +1,7 @@
 <!--- **Welcome to the code** =) Feel free to take a look! --->
 
 <h1 align="center"> Hi there 👋 </h1>
-<h3 align="center"> My name is <b>Richard William. I'm a 30 y/o experienced Software Engineer from Brazil. I've been creating apps and solutions that facilitate lives and develop businesses all across the world for over 8 years. </h3>
+<h3 align="center"> My name is <b>Richard William. I'm a 30 y/o experienced Software Engineer from Brazil. I've been creating apps and solutions that facilitate lives and develop businesses all across the world for over 10 years. </h3>
 
 &nbsp;
 
