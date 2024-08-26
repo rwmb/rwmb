@@ -51,7 +51,7 @@
 
 &nbsp;
 
-<h3 align="center"> 👓 Right now I'm studying Python and React 👓 </h3>
+<h3 align="center"> 👓 Right now I'm studying AI 👓 </h3>
 
 &nbsp;
 &nbsp;
